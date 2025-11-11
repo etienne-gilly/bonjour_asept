@@ -3,19 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>asept</title>
+  <title>ASEPT</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     }
+
     body {
+      /* Image de fond plein écran */
       background: url('asept_SITE_v0.jpg') no-repeat center center fixed;
       background-size: cover;
+      position: relative;
+      color: #000;
+    }
+
+    /* Conteneur global pour centrage vertical */
+    .overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* Logo centré au milieu de l’écran */
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140px; /* ajuste la taille selon ton logo */
+    }
+
+    /* Bloc de textes à droite, centré verticalement */
+    .info {
+      position: absolute;
+      top: 50%;
+      right: 12%;           /* ajuste la distance au bord droit */
+      transform: translateY(-50%);
+      display: flex;
+      gap: 40px;            /* espace entre les colonnes */
+      font-size: 13px;
+      line-height: 1.4;
+      white-space: nowrap;  /* pour garder les blocs sur une ligne */
+    }
+
+    .info .col {
+      text-align: left;
+    }
+
+    .info .col.cities span {
+      display: block;
+    }
+
+    .info .col.contact .line {
+      margin-bottom: 4px;
+    }
+
+    .info .label {
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+    a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    /* Version mobile : tout recentrer et réduire un peu */
+    @media (max-width: 768px) {
+      .logo {
+        width: 110px;
+        top: 40%;
+      }
+
+      .info {
+        position: absolute;
+        top: 60%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        white-space: normal;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="overlay">
+    <!-- Logo centré -->
+    <img src="logo-asept.png" alt="ASEPT" class="logo">
+
+    <!-- Textes à droite -->
+    <div class="info">
+      <div class="col">
+        Architectes Urbanistes
+      </div>
+
+      <div class="col cities">
+        <span>Paris</span>
+        <span>Lyon</span>
+        <span>Marseille</span>
+      </div>
+
+      <div class="col contact">
+        <div class="line">
+          <span class="label">M.</span>bonjour@asept.eu
+        </div>
+        <div class="line">
+          <span class="label">T.</span>06 26 08 77 63
+        </div>
+        <div class="line">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
